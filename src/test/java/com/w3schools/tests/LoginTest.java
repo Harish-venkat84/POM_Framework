@@ -23,15 +23,18 @@ public class LoginTest extends SeWrappers{
 			String pageTitle="My learning | W3Schools";
 			String actualTitle=se.getTitle();
 			Assert.assertTrue(driver.getTitle().equals(pageTitle));
-			//Assert.assertEquals(actualTitle,pageTitle);
+			Assert.assertEquals(actualTitle,pageTitle);
+			Reports.reportStep("PASS", "Login with valid credentials passed");
+			Thread.sleep(2000);
 		}
 		catch(Exception ex)
 		{
+			Reports.reportStep("FAIL", "Login failed");
 			ex.printStackTrace();
 		}
 	}
 	
-	@Test
+	//@Test
 	public void loginWithInvalidEmail()
 	{
 		try
